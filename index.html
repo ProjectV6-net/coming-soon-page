@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProjectV6 — coming soon</title>
+  <meta name="description" content="Tunnel broker, BGP transit, IPv6-only VPS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="top">
+      <button class="logo" id="logo" aria-label="ProjectV6">
+        2001<span class="dim">::</span>PV6
+      </button>
+      <nav class="links">
+        <a href="mailto:grants@projectv6.net">grants</a>
+        <span class="sep">·</span>
+        <a href="mailto:contact@projectv6.net">contact</a>
+      </nav>
+    </header>
+
+    <main class="middle">
+      <h1 class="title">Coming Soon</h1>
+      <p class="lede">Tunnel broker, BGP transit, IPv6-only VPS.</p>
+      <a class="donate" href="https://hcb.hackclub.com/donations/start/projectv6" target="_blank" rel="noreferrer">
+        Donate via HCB
+        <span class="donate-arrow">→</span>
+      </a>
+    </main>
+
+    <footer class="bottom">
+      ProjectV6 is fiscally sponsored by The Hack Foundation (d.b.a. Hack Club), a 501(c)(3) nonprofit (EIN: 81-2908499).
+    </footer>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+
+  <div class="egg" id="egg" role="dialog" aria-modal="true" aria-label="ICMPv6 echo reply" hidden>
+    <div class="egg-cat-wrap" id="egg-cat-wrap">
+      <pre class="egg-cat">  /\_/\
+ ( o.o )   ICMPv6 echo reply
+  > ^ &lt;    from ::dead:beef
+
+  type 129 · code 0 · ttl 64
+  you found the secret subnet.</pre>
+      <small id="egg-hint">click to close</small>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
