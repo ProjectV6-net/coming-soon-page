@@ -1,4 +1,4 @@
-// ProjectV6 — coming soon
+// ProjectV6 - coming soon
 
 // ── Logo: 6 clicks = ICMPv6 echo toast ──────────────────────────────────────
 (function () {
