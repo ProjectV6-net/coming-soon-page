@@ -12,7 +12,7 @@ ProjectV6 is a community project focused on educating people about IPv6 and help
  
 <sub><sub>_*Not everything will be available from day one. We're funded entirely through donations and grants, so new services only launch once we've hit a funding goal that covers at least a year of running costs. That way we never promise something we can't sustain._</sub></sub>
  
-<sub>ProjectV6 is fiscally sponsored by [HCB](https://hcb.hackclub.com), a fiscal sponsorship platform by Hack Club.</sub>
+<sub>ProjectV6 is fiscally sponsored by [HCB](https://hcb.hackclub.com).</sub>
 
 ---
 
