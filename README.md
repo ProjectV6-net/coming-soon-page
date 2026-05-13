@@ -35,3 +35,5 @@ Got ideas? Want to help build the site, donate server resources, or develop some
 ## License
 
 Licensed under the [MIT License](LICENSE). Use it freely, just give us credits.
+
+<!-- Have a great day! --!>
