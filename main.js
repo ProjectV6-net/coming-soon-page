@@ -158,7 +158,7 @@
       copy.textContent = '📋 copy email';
       closeTimer = setTimeout(() => {
         picker.hidden = true;
-      }, 5000);
+      }, 500);
     }, 1500);
   });
 
