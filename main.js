@@ -1,6 +1,6 @@
 // ProjectV6 - coming soon
 
-// ── Logo: 6 clicks = ICMPv6 echo toast ──────────────────────────────────────
+// Logo: 6 clicks = ICMPv6 echo toast
 (function () {
   const logo = document.getElementById('logo');
   const toast = document.getElementById('toast');
@@ -27,7 +27,7 @@
   window._showToast = showToast;
 })();
 
-// ── Konami code → ICMPv6 cat easter egg ─────────────────────────────────────
+// Konami code = ICMPv6 cat easter egg
 (function () {
   const SEQ = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
   let idx = 0;
@@ -72,5 +72,23 @@
   egg.addEventListener('click', closeEgg);
   egg.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') closeEgg();
+  });
+})();
+
+// Spotlight effect on bottom section
+(function () {
+  const bottom = document.querySelector('.bottom');
+
+  window.addEventListener('mousemove', (e) => {
+    const rect = bottom.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const dx = Math.max(rect.left - e.clientX, 0, e.clientX - rect.right);
+    const dy = Math.max(rect.top - e.clientY, 0, e.clientY - rect.bottom);
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const r = Math.max(0, 120 * (1 - dist / 150));
+    bottom.style.setProperty('--x', x + 'px');
+    bottom.style.setProperty('--y', y + 'px');
+    bottom.style.setProperty('--r', r + 'px');
   });
 })();

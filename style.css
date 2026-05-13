@@ -160,7 +160,15 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink-faint);
   text-align: center;
   line-height: 1.6;
+  --x: 50%;
+  --y: 50%;
+  --r: 0px;
+  background: radial-gradient(circle 120px at var(--x) var(--y), var(--ink) 0%, var(--ink-faint) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
+
 
 /* ───── toast ───── */
 
