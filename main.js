@@ -92,3 +92,47 @@
     bottom.style.setProperty('--r', r + 'px');
   });
 })();
+
+// Email link with picker
+(function () {
+  const picker = document.getElementById('mail-picker');
+  const addr = document.getElementById('mail-picker-addr');
+  const gmail = document.getElementById('opt-gmail');
+  const outlook = document.getElementById('opt-outlook');
+  const copy = document.getElementById('opt-copy');
+  let currentEmail = '';
+
+  document.querySelectorAll('.mail-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+      currentEmail = link.dataset.email;
+      addr.textContent = currentEmail;
+      const rect = link.getBoundingClientRect();
+      picker.style.top = (rect.bottom + 8) + 'px';
+      const left = Math.min(rect.left, window.innerWidth - 248); 
+      picker.style.left = left + 'px';
+      picker.hidden = false;
+    });
+  });
+
+  gmail.addEventListener('click', () => {
+    window.open('https://mail.google.com/mail/?view=cm&to=' + currentEmail, '_blank');
+    picker.hidden = true;
+  });
+
+  outlook.addEventListener('click', () => {
+    window.open('https://outlook.live.com/mail/deeplink/compose?to=' + currentEmail, '_blank');
+    picker.hidden = true;
+  });
+
+  copy.addEventListener('click', () => {
+    navigator.clipboard.writeText(currentEmail);
+    copy.textContent = '[✅ copied!]';
+    setTimeout(() => { copy.textContent = '📋 copy email'; picker.hidden = true; }, 1500);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!picker.contains(e.target) && !e.target.closest('.mail-link')) {
+      picker.hidden = true;
+    }
+  });
+})();

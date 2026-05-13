@@ -19,9 +19,9 @@
         2001<span class="dim">::</span>PV6
       </button>
       <nav class="links">
-        <a href="mailto:grants@projectv6.net">grants</a>
-        <span class="sep">·</span>
-        <a href="mailto:contact@projectv6.net">contact</a>
+        <a class="mail-link" data-email="grants@projectv6.net">[grants]</a>
+        <span class="sep">::</span>
+        <a class="mail-link" data-email="contact@projectv6.net">[contact]</a>
       </nav>
     </header>
 
@@ -53,6 +53,12 @@
     </div>
   </div>
 
+  <div class="mail-picker" id="mail-picker" hidden>
+    <div class="mail-picker-addr" id="mail-picker-addr"></div>
+    <button class="mail-picker-opt" id="opt-gmail">✉️ open in Gmail</button>
+    <button class="mail-picker-opt" id="opt-outlook">📧 open in Outlook</button>
+    <button class="mail-picker-opt" id="opt-copy">📋 copy email</button>
+  </div>
   <script src="main.js"></script>
 </body>
 </html>
