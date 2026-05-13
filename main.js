@@ -124,10 +124,42 @@
     picker.hidden = true;
   });
 
+  let copyCombo = 0;
+  let comboTimer = null;
+  let closeTimer = null;
+  const comboMessages = [
+    'Damn.',
+    'DAMN.',
+    'You already copied it, stop.',
+    "The email didn't change. Why are you still clicking?",
+    'Told you to stop!',
+  ]
+
   copy.addEventListener('click', () => {
     navigator.clipboard.writeText(currentEmail);
-    copy.textContent = '[✅ copied!]';
-    setTimeout(() => { copy.textContent = '📋 copy email'; picker.hidden = true; }, 1500);
+    copyCombo++;
+
+    copy.textContent = copyCombo > 1 ? `✅ copied! \u00D7${copyCombo}` : '✅ copied!';
+
+    if (copyCombo % 20 === 0) {
+      const msg = comboMessages[Math.floor(copyCombo / 20 - 1) % comboMessages.length];
+      window._showToast(msg);
+      if (copyCombo >= 100) {
+      copy.textContent = '❌ rate limited'
+      return;
+    }
+    }
+
+    if (comboTimer) clearTimeout(comboTimer);
+    if (closeTimer) clearTimeout(closeTimer);
+
+    comboTimer = setTimeout(() => {
+      copyCombo = 0;
+      copy.textContent = '📋 copy email';
+      closeTimer = setTimeout(() => {
+        picker.hidden = true;
+      }, 5000);
+    }, 1500);
   });
 
   document.addEventListener('click', (e) => {
