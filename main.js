@@ -127,6 +127,7 @@
   let copyCombo = 0;
   let comboTimer = null;
   let closeTimer = null;
+  let isRateLimited = false;
   const comboMessages = [
     'Damn.',
     'DAMN.',
@@ -134,18 +135,25 @@
     "The email didn't change. Why are you still clicking?",
     'Told you to stop!',
   ]
+   
+   copy.addEventListener('click', () => {
+     if (isRateLimited) {
+       copy.textContent = '❌ rate limited';
+       return;
+     }
 
-  copy.addEventListener('click', () => {
-    navigator.clipboard.writeText(currentEmail);
-    copyCombo++;
-
+     navigator.clipboard.writeText(currentEmail);
+     copyCombo++;
+     
     copy.textContent = copyCombo > 1 ? `✅ copied! \u00D7${copyCombo}` : '✅ copied!';
 
     if (copyCombo % 20 === 0) {
       const msg = comboMessages[Math.floor(copyCombo / 20 - 1) % comboMessages.length];
       window._showToast(msg);
       if (copyCombo >= 100) {
+      isRateLimited = true;
       copy.textContent = '❌ rate limited'
+      closeTimer = setTimeout(() => { picker.hidden = true; }, 2000);
       return;
     }
     }
@@ -154,11 +162,11 @@
     if (closeTimer) clearTimeout(closeTimer);
 
     comboTimer = setTimeout(() => {
-      copyCombo = 0;
-      copy.textContent = '📋 copy email';
-      closeTimer = setTimeout(() => {
-        picker.hidden = true;
-      }, 500);
+      if (!isRateLimited) {
+        copyCombo = 0;
+        copy.textContent = '📋 copy email';
+        closeTimer = setTimeout(() => { picker.hidden = true; }, 500);
+      }
     }, 1500);
   });
 
