@@ -20,7 +20,9 @@ ProjectV6 is a community project focused on educating people about IPv6 and help
 
 Every bit helps! You can donate directly through HCB:
 
-[![Donate with HCB](https://img.shields.io/badge/Donate-HCB-ec3750?style=flat-square)](https://hcb.hackclub.com/donations/start/projectv6)
+[![Donate with HCB](https://img.shields.io/badge/Donate-HCB-ec3750?style=flat-square)](https://hcb.hackclub.com/donations/start/projectv6) - Prefered!
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F4S2200WMQ)
 
 Interested in supporting us with a grant instead? Reach out at [grants@projectv6.net](mailto:grants@projectv6.net) and we'll get back to you!
 
