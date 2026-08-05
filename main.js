@@ -101,9 +101,20 @@
   const outlook = document.getElementById('opt-outlook');
   const copy = document.getElementById('opt-copy');
   let currentEmail = '';
+  let closePickerTimer = null;
 
   document.querySelectorAll('.mail-link').forEach(link => {
     link.addEventListener('click', (e) => {
+      const email = link.dataset.email;
+      const alreadyOpen = !picker.hidden && currentEmail === email && !picker.classList.contains('closing')
+
+      if (alreadyOpen) {
+        closePicker()
+        return;
+      }
+      if (closePickerTimer) clearTimeout(closePickerTimer);
+      picker.classList.remove('closing');
+
       currentEmail = link.dataset.email;
       addr.textContent = currentEmail;
       const rect = link.getBoundingClientRect();
@@ -114,14 +125,23 @@
     });
   });
 
+function closePicker() {
+  if (picker.hidden || picker.classList.contains('closing')) return;
+  picker.classList.add('closing');
+  closePickerTimer = setTimeout(() => {
+    picker.hidden = true;
+    picker.classList.remove('closing');
+  }, 160);
+}
+
   gmail.addEventListener('click', () => {
     window.open('https://mail.google.com/mail/?view=cm&to=' + currentEmail, '_blank');
-    picker.hidden = true;
+      closePicker();
   });
 
   outlook.addEventListener('click', () => {
     window.open('https://outlook.live.com/mail/deeplink/compose?to=' + currentEmail, '_blank');
-    picker.hidden = true;
+      closePicker();
   });
 
   let copyCombo = 0;
@@ -153,7 +173,7 @@
       if (copyCombo >= 100) {
       isRateLimited = true;
       copy.textContent = '❌ rate limited'
-      closeTimer = setTimeout(() => { picker.hidden = true; }, 2000);
+      closeTimer = setTimeout(() => { closePicker(); }, 2000);
       return;
     }
     }
@@ -165,14 +185,14 @@
       if (!isRateLimited) {
         copyCombo = 0;
         copy.textContent = '📋 copy email';
-        closeTimer = setTimeout(() => { picker.hidden = true; }, 500);
+        closeTimer = setTimeout(() => { closePicker(); }, 500);
       }
     }, 1500);
   });
 
   document.addEventListener('click', (e) => {
     if (!picker.contains(e.target) && !e.target.closest('.mail-link')) {
-      picker.hidden = true;
+      closePicker();
     }
   });
 })();
