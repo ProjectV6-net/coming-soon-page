@@ -105,7 +105,7 @@
 
   document.querySelectorAll('.mail-link').forEach(link => {
     link.addEventListener('click', (e) => {
-      const email = email;
+      const email = link.dataset.email;
       const alreadyOpen = !picker.hidden && currentEmail === email && !picker.classList.contains('closing')
 
       if (alreadyOpen) {
