@@ -105,7 +105,7 @@
 
   document.querySelectorAll('.mail-link').forEach(link => {
     link.addEventListener('click', (e) => {
-      const email = link.dataset.email;
+      const email = email;
       const alreadyOpen = !picker.hidden && currentEmail === email && !picker.classList.contains('closing')
 
       if (alreadyOpen) {
@@ -115,7 +115,7 @@
       if (closePickerTimer) clearTimeout(closePickerTimer);
       picker.classList.remove('closing');
 
-      currentEmail = link.dataset.email;
+      currentEmail = email;
       addr.textContent = currentEmail;
       const rect = link.getBoundingClientRect();
       picker.style.top = (rect.bottom + 8) + 'px';
