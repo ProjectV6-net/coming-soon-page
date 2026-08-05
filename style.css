@@ -5,9 +5,10 @@
   --ink: #e8e8e8;
   --ink-dim: #888;
   --ink-faint: #444;
-  --accent: #5ef38c;
-  --accent-soft: rgba(94, 243, 140, 0.18);
-  --accent-line: rgba(94, 243, 140, 0.35);
+  --accent: #0000ff;
+  --accent-soft: rgba(93, 93, 255, 0.347);
+  --accent-line: rgba(93, 93, 255, 0.397);
+  --second-color: rgba(103, 103, 255, 0.61);
   --line: rgba(255, 255, 255, 0.10);
 
   --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
@@ -142,7 +143,7 @@ a { color: inherit; text-decoration: none; }
 }
 .donate:hover {
   border-color: var(--accent-line);
-  color: var(--accent);
+  color: var(--second-color);
   transform: translateY(-1px);
 }
 .donate-arrow {
