@@ -125,14 +125,14 @@
     });
   });
 
-function closePicker() {
-  if (picker.hidden || picker.classList.contains('closing')) return;
-  picker.classList.add('closing');
-  closePickerTimer = setTimeout(() => {
-    picker.hidden = true;
-    picker.classList.remove('closing');
-  }, 160);
-}
+  function closePicker() {
+    if (picker.hidden || picker.classList.contains('closing')) return;
+    picker.classList.add('closing');
+    closePickerTimer = setTimeout(() => {
+      picker.hidden = true;
+      picker.classList.remove('closing');
+    }, 160);
+  }
 
   gmail.addEventListener('click', () => {
     window.open('https://mail.google.com/mail/?view=cm&to=' + currentEmail, '_blank');
