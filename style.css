@@ -5,6 +5,7 @@
   --ink: #e8e8e8;
   --ink-dim: #888;
   --ink-faint: #444;
+  --logo-hover: #0000ff;
   --accent: #0000ff;
   --accent-soft: rgba(93, 93, 255, 0.347);
   --accent-line: rgba(93, 93, 255, 0.397);
@@ -81,7 +82,8 @@ a { color: inherit; text-decoration: none; }
   transition: color 140ms ease;
 }
 .logo .dim { color: var(--ink-faint); }
-.logo:hover { color: var(--accent); }
+.logo svg { display: block; }
+.logo:hover { color: var(--logo-hover); }
 
 .links {
   display: flex;
