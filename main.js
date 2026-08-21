@@ -136,12 +136,12 @@
 
   gmail.addEventListener('click', () => {
     window.open('https://mail.google.com/mail/?view=cm&to=' + currentEmail, '_blank');
-      closePicker();
+    closePicker();
   });
 
   outlook.addEventListener('click', () => {
     window.open('https://outlook.live.com/mail/deeplink/compose?to=' + currentEmail, '_blank');
-      closePicker();
+    closePicker();
   });
 
   let copyCombo = 0;
